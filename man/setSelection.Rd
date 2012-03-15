@@ -1,8 +1,8 @@
-\name{generate}
-\alias{generate}
+\name{setSelection}
+\alias{setSelection}
 \title{Generic function}
 \usage{
-  generate(x, ...)
+  setSelection(x, ...)
 }
 \arguments{
   \item{x}{Object}
@@ -16,7 +16,7 @@
   TszKin Julian Chan \email{ctszkin@gmail.com}
 }
 \seealso{
-  \code{\link{generate.parameterDef}}
+  \code{\link{setSelection.parameterDef}}
 }
 \keyword{internal}
 

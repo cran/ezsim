@@ -1,0 +1,32 @@
+\name{createSimulationTable}
+\alias{createSimulationTable}
+\title{Generic function}
+\usage{
+  createSimulationTable(x, ...)
+
+  createSimulationTable(x, ...)
+}
+\arguments{
+  \item{x}{Object}
+
+  \item{\dots}{Further arguments}
+
+  \item{x}{Object}
+
+  \item{\dots}{Further arguments}
+}
+\description{
+  Generic function
+
+  Generic function
+}
+\author{
+  TszKin Julian Chan \email{ctszkin@gmail.com}
+
+  TszKin Julian Chan \email{ctszkin@gmail.com}
+}
+\seealso{
+  \code{\link{createSimulationTable.ezsim}}
+}
+\keyword{internal}
+

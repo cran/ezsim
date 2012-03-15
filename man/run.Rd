@@ -1,9 +1,22 @@
 \name{run}
-\title{Generic function}
-\usage{run(x, ...)}
-\description{Generic function}
 \alias{run}
-\author{TszKin Julian Chan \email{ctszkin@gmail.com}}
-\seealso{\code{\link{run.ezsim}}}
-\arguments{\item{x}{Object}
-\item{\dots}{Further arguments}}
+\title{Generic function}
+\usage{
+  run(x, ...)
+}
+\arguments{
+  \item{x}{Object}
+
+  \item{\dots}{Further arguments}
+}
+\description{
+  Generic function
+}
+\author{
+  TszKin Julian Chan \email{ctszkin@gmail.com}
+}
+\seealso{
+  \code{\link{run.ezsim}}
+}
+\keyword{internal}
+

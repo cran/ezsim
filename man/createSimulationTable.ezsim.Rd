@@ -1,0 +1,19 @@
+\name{createSimulationTable.ezsim}
+\alias{createSimulationTable.ezsim}
+\title{createSimulationTable}
+\usage{
+  \method{createSimulationTable}{ezsim} (x, ...)
+}
+\arguments{
+  \item{x}{an ezsim object}
+
+  \item{\dots}{not used}
+}
+\description{
+  Create a simulation table from simulation result
+}
+\author{
+  TszKin Julian Chan \email{ctszkin@gmail.com}
+}
+\keyword{internal}
+

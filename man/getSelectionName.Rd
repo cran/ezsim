@@ -1,8 +1,8 @@
-\name{generate}
-\alias{generate}
+\name{getSelectionName}
+\alias{getSelectionName}
 \title{Generic function}
 \usage{
-  generate(x, ...)
+  getSelectionName(x, ...)
 }
 \arguments{
   \item{x}{Object}
@@ -16,7 +16,8 @@
   TszKin Julian Chan \email{ctszkin@gmail.com}
 }
 \seealso{
-  \code{\link{generate.parameterDef}}
+  \code{\link{getSelectionName.ezsim}},
+  \code{\link{getSelectionName.summary.ezsim}}
 }
 \keyword{internal}
 

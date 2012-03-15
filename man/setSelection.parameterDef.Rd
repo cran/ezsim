@@ -1,24 +1,27 @@
-\name{createParDef}
-\alias{createParDef}
-\alias{parameterDef}
-\title{Create a parameterDef Object.}
+\name{setSelection.parameterDef}
+\alias{setSelection.parameterDef}
+\title{Set a parameterDef Object.}
 \usage{
-  createParDef(selection = list(), banker = list())
+  \method{setSelection}{parameterDef}(x,...)
 }
 \arguments{
-  \item{selection}{A list of scalar parameters}
+  \item{x}{A parameterDef object}
 
-  \item{banker}{A list of other parameters}
+  \item{\dots}{Variables to be added to a parameterDef
+  object}
 }
 \value{
   A parameterDef object
 }
 \description{
-  createParDef creates a new parameterDef object from a
-  list of scalar parameters and a list of other parameters.
-  parameterDef is a short hand of "parameter definition".
-  It defines parameters used by the \code{\link{dgp}} which
-  is the most important part of a simulation. For each
+  setSelection sets the banker parameters of a parameterDef
+  object. setSelection are "call by reference", so
+  assignment is not needed to update the parameterDef
+  object. In other words, they will overwrite the value of
+  its argument(parameterDef object). parameterDef is a
+  short hand of "parameter definition". It defines
+  parameters used by the \code{\link{dgp}} which is the
+  most important part of a simulation. For each
   simulation,There is a particular set of parameter.
   parameterDef allow us to define several parameters for
   different simulation at once. There are two types of
@@ -31,7 +34,7 @@
   over the scalar parameters. For example, we would like to
   know how would the sample size affect the variance of the
   sample mean of normally distributed variable. We can set
-  n=seq(10,50,10), mean=1 and sd=2.  (see example)
+  n=seq(10,50,10), mean=1 and sd=2.  (see example)#'
 }
 \examples{
 par_def1<-createParDef(selection=list(mean=1,sd=2,n=seq(10,50,10)))
@@ -55,6 +58,7 @@ generate(par_def3)
   TszKin Julian Chan \email{ctszkin@gmail.com}
 }
 \seealso{
-  \code{\link{setBanker.parameterDef}},\code{\link{setSelection.parameterDef}},\code{\link{evalFunctionOnParameterDef}},\code{\link{generate.parameterDef}}
+  \code{\link{setSelection.parameterDef}},\code{\link{createParDef}},\code{\link{evalFunctionOnParameterDef}},\code{\link{generate.parameterDef}}
 }
+\keyword{parameterDef}
 

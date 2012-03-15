@@ -1,0 +1,34 @@
+\name{setBanker}
+\alias{setBanker}
+\title{Generic function}
+\usage{
+  setBanker(x, ...)
+
+  setBanker(x, ...)
+}
+\arguments{
+  \item{x}{Object}
+
+  \item{\dots}{Further arguments}
+
+  \item{x}{Object}
+
+  \item{\dots}{Further arguments}
+}
+\description{
+  Generic function
+
+  Generic function
+}
+\author{
+  TszKin Julian Chan \email{ctszkin@gmail.com}
+
+  TszKin Julian Chan \email{ctszkin@gmail.com}
+}
+\seealso{
+  \code{\link{setBanker.parameterDef}}
+
+  \code{\link{setBanker.parameterDef}}
+}
+\keyword{internal}
+

@@ -1,0 +1,53 @@
+\name{getSelectionName.summary.ezsim}
+\alias{getSelectionName.summary.ezsim}
+\title{Get Names of selection Parameters.}
+\usage{
+  \method{getSelectionName}{summary.ezsim}(x,simple=FALSE,parameters_priority,...)
+}
+\arguments{
+  \item{x}{an summary.ezsim object}
+
+  \item{simple}{If true, return only the name of selection
+  parameters. If False, split the selection into two
+  groups, one with fixed value, one with varied value.
+  Also, subtitle is returned.}
+
+  \item{parameters_priority}{Priority in sorting
+  parameters.}
+
+  \item{\dots}{unused}
+}
+\value{
+  Names of selection parameters.
+}
+\description{
+  Get names of selections parameters from an summary.ezsim
+  object.
+}
+\note{
+  For internal use of ezsim.
+}
+\examples{
+\dontrun{
+ezsim_basic<-ezsim(
+    m             = 100,
+    run           = TRUE,
+    display_name  = c(mean_hat="hat(mu)",sd_mean_hat="hat(sigma[hat(mu)])"),
+    parameter_def = createParDef(list(n=seq(20,80,20),mu=c(0,2),sigma=c(1,3,5))),
+    dgp           = function() rnorm(n,mu,sigma),
+    estimator     = function(x) c(mean_hat = mean(x),
+                                 sd_mean_hat=sd(x)/sqrt(length(x)-1)),
+    true_value    = function() c(mu, sigma / sqrt(n-1))
+)
+
+getSelectionName(ezsim_basic)
+getSelectionName(summary(ezsim_basic))
+}
+}
+\author{
+  TszKin Julian Chan \email{ctszkin@gmail.com}
+}
+\seealso{
+  \code{\link{getSelectionName.ezsim}} keywords internal
+}
+
