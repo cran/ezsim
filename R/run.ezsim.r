@@ -6,12 +6,13 @@
 #' @param x An ezsim object
 #' @param \dots not used
 #' @author TszKin Julian Chan \email{ctszkin@@gmail.com}
-#' @S3method run ezsim
+#' @export 
 #' @examples              
 #' \dontrun{
 #' ezsim_basic<-ezsim(
 #'     m             = 100,
 #'     run           = FALSE,
+#'     run_test      = TRUE,
 #'     display_name  = c(mean_hat="hat(mu)",sd_mean_hat="hat(sigma[hat(mu)])"),
 #'     parameter_def = createParDef(list(n=seq(20,80,20),mu=c(0,2),sigma=c(1,3,5))),
 #'     dgp           = function() rnorm(n,mu,sigma),
@@ -29,10 +30,29 @@ run.ezsim <-function(x,...){
 	
 	create_cluster_flag <- FALSE
 	
-	if (x$parallel & is.null(x$cluster)){ 
-		x$cluster<-makeCluster(x$number_of_workers)
+	## Decide whether we need to stop the cluster after the run
+	create_cluster_flag <- FALSE
+	
+	if (x$use_core > 1 & is.null(x$cluster) ){
+		x$cluster <- makeCluster(x$use_core)
+		if (!is.null(x$cluster_packages)){
+			for (i in 1:length(x$cluster_packages))
+				eval(substitute( 
+					clusterEvalQ(x$cluster , require(w, character.only=TRUE)   )  ,
+					list( w=x$cluster_packages[i] )
+				))
+		}
+		clusterSetRNGStream(x$cluster,x$use_seed)
 		create_cluster_flag<-TRUE
 	}
+
+	if (x$use_core == 1) 
+		set.seed(x$use_seed)
+
+	# if (x$parallel & is.null(x$cluster)){ 
+	# 	x$cluster<-makeCluster(x$number_of_workers)
+	# 	create_cluster_flag<-TRUE
+	# }
 	
 	##  A local function to conduct simulation
 	## fix parameter, repeat for m times
@@ -43,7 +63,7 @@ run.ezsim <-function(x,...){
 		}
 		
 		out<-
-		if (!x$parallel){
+		if (x$use_core == 1){
 			lapply(1:m,parser,par=par,ezsim_object=ezsim_object)
 		}
 		else{
